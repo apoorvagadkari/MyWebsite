@@ -1,0 +1,169 @@
+.Everything {
+    color: whitesmoke;
+    background-color: #320b66;
+    font-size: xx-large;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+.wrap{
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: right;
+}
+
+.about{font-size: 48px;
+width:60%;
+
+height: 200px; }
+
+img{
+padding: 10px;
+float: right;
+height: auto
+}
+.lists {
+  padding-left: 10%;
+}
+h2{
+  padding-left: 3%;
+}
+#box {
+  width: 33.33%;
+  padding-bottom: 33.33%;
+  background: #00F;
+  color: #FFF;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+#innerContent {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  background: #66F;
+  
+}
+#box1 {
+  width: 33.33%;
+  padding-bottom: 30%;
+  background: #00F;
+  color: #FFF;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: 33.33%;
+  
+}
+#innerContent1 {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  background: #66F;
+  
+}
+#box2 {
+  width: 33.33%;
+  padding-bottom: 40%;
+  background: #00F;
+  color: #FFF;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  float: right;
+  
+}
+#innerContent2 {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  background: #66F;
+  
+}
+.social{
+  padding-top: 35%;
+}
+.social1{
+  padding-left: 40%;
+}
+.cs{
+  color: chartreuse;
+}
+
+.fa-instagram {
+  background: #cb2027;
+  color: white;
+}
+.fa-github {
+  background: #66F;
+  color: white;
+}
+.fa-linkedin {
+  background:  #007bb5;
+  color: white;
+}
+
+.up-tags{
+    text-align: right;
+    font-size:x-large;
+    color: aqua;
+    padding: 1.5%;
+    padding-right: 0.5cm;
+    
+
+}
+
+a:visited{
+  color: aqua;
+  text-decoration: none;
+}
+a:hover{
+  color:red;
+  text-decoration: none;
+
+}
+a{
+  text-decoration: none;
+}
+.name{
+  padding-left: 35%;
+}
+h1{
+  color: chartreuse;
+}
+.rights{
+  padding-left: 40%;
+}
+
+ul {
+  margin: 3px;
+  color: aqua;
+}
+
+li {
+  height: auto;
+  margin-right: 0.8rem;
+  color: aqua;
+}
+
+.animation{
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    
+    white-space: nowrap;
+    animation: typing;
+    animation-duration: 6s;
+    animation-timing-function: steps(60, end);
+  animation-fill-mode: forwards;
+}
+  
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}

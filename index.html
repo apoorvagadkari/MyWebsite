@@ -1,101 +1,520 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="Apoo.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Apoorva</title>
-<div class="Everything">
-    <body>
-      <div class="wrap">
-        <h3 class="up-tags" ><a href="#about">
-            About </a>
-        </h3>
-        <h3 class="up-tags"  ><a href="#experience" >
-          Experience </a>
-      </h3> <h3 class="up-tags" ><a href="#projects">
-       Projects </a>
-    </h3> <h3 class="up-tags" ><a href="#socialMedia">
-       Social Media</a>
-  </h3>
-  </div>
-        <hr >
-        <section id="about">
-<h1 class="animation">Hi, Apoorva here!</h1>
-<h4>Just another Coder</h4>
-<div class="desciption"><img src="ProfilePhoto1.png" >
-<p class="about">A  Computer Science graduate student from Syracuse University.I like full-stack development and a 
-  bit of Web Designing.
-    
-Some technologies I have worked on are:- 
-<ul>
-  <li>HTML,CSS</li>
-  <li>JavaScript</li>
-    <li>Node.js </li>
-    <li>React.js</li> 
-    <li>MySQL</li> 
-    <li>PowerApps and PowerAutomate</li> 
-    <li>Java,Python</li>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apoorva Gadkari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --bg:        #0d0f14;
+      --surface:   #13161d;
+      --border:    #1e222e;
+      --accent:    #6c8cff;
+      --accent2:   #a78bfa;
+      --text:      #e4e6f0;
+      --muted:     #7a7f96;
+      --tag-bg:    #1a1e2e;
+      --radius:    12px;
+      --nav-h:     64px;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(13,15,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+    .nav-logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Layout ── */
+    main { padding-top: var(--nav-h); }
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .hero-name {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 440px;
+      margin-bottom: 2.25rem;
+      line-height: 1.8;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.88; transform: translateY(-2px); }
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      box-shadow: 0 0 0 6px rgba(108,140,255,0.1);
+      flex-shrink: 0;
+    }
+
+    /* ── Section labels ── */
+    .section-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2.5rem;
+    }
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .skill-tag {
+      padding: 0.35rem 0.85rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 500;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--text); }
+
+    /* ── Experience ── */
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .exp-card:hover { border-color: #2e3348; }
+    .exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .exp-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .exp-company {
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-top: 0.2rem;
+      font-weight: 500;
+    }
+    .exp-type {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .exp-card ul {
+      padding-left: 1.1rem;
+      list-style: disc;
+    }
+    .exp-card li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+      line-height: 1.65;
+    }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover { border-color: #2e3348; transform: translateY(-3px); }
+    .project-icon {
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      background: var(--tag-bg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+    .project-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.25rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .project-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent2);
+      background: rgba(167,139,250,0.08);
+      border: 1px solid rgba(167,139,250,0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+    .project-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: opacity 0.2s;
+    }
+    .project-link:hover { opacity: 0.75; }
+
+    /* ── Social ── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .social-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .social-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .social-icon { font-size: 1.2rem; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero { flex-direction: column-reverse; align-items: flex-start; }
+      .hero-photo { width: 130px; height: 130px; }
+      .nav-links { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">AG</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#connect">Connect</a></li>
     </ul>
-    Outside of tech,I like to explore new places and an avid lover of sports.</p></div></section>
-  
+  </nav>
 
+  <main>
 
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Software Developer at QuinStreet</p>
+        <h1 class="hero-name">Hi, I'm<br>Apoorva Gadkari</h1>
+        <p class="hero-tagline">
+          Full-stack developer with a love for clean UIs and solid backends.
+          I build things for the web — from REST APIs to React interfaces.
+        </p>
+        <a href="#connect" class="hero-cta">Get in touch →</a>
+      </div>
+      <img
+        class="hero-photo"
+        src="ProfilePhoto1.jpg"
+        alt="Apoorva Gadkari"
+      />
+    </section>
 
+    <!-- SKILLS -->
+    <section>
+      <p class="section-label">Technologies</p>
+      <h2 class="section-title">What I work with</h2>
+      <div class="divider"></div>
+      <div class="skills-grid">
+        <span class="skill-tag">HTML &amp; CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express.js</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">PowerApps</span>
+        <span class="skill-tag">Power Automate</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">Postman</span>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
     <section id="experience">
-    <h1 class="exp" >/Experience/</h1></section>
+      <p class="section-label">Work History</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="divider"></div>
 
-    <h2 class="heading">Senior Analyst @ EY India LLP.</h2>
-    
-    <ol class="lists">
-        <li>Worked on Microsoft's PowerApps and PowerAutomate to build an app for the client.</li>
-      <li> Implemented the CRUD operations required to get,create and update data through API's.</li>
-    </ol> 
-  
-  <h2 class="heading">Intern @ A.P.Shah Institute Of Technology</h2>
-  <ol class="lists"> 
-  <li> Created a project on Image Steganography where we had to write a Python Code which sends encrypted data through an Image.</li>
-    <li> I also had a chance to collaborate with different people from my undergraduate college to come to a solution.</li></ol>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Software Developer</div>
+            <div class="exp-company">QuinStreet</div>
+          </div>
+          <span class="exp-type">Full-time</span>
+        </div>
+        <ul>
+          <li>Developed and integrated AI-powered features into production systems, leveraging large language models to enhance user experience and automate workflows.</li>
+          <li>Built and maintained full-stack features across front-end and back-end services using modern web technologies.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Research Software Developer</div>
+            <div class="exp-company">Syracuse University</div>
+          </div>
+          <span class="exp-type">Research</span>
+        </div>
+        <ul>
+          <li>Integrated Python-based backend services with interactive front-end components built using Plotly, React, and OpenSeaDragon, enabling real-time visualization of scientific and imaging data.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Senior Analyst</div>
+            <div class="exp-company">EY India LLP</div>
+          </div>
+          <span class="exp-type">Full-time</span>
+        </div>
+        <ul>
+          <li>Built a client-facing app using Microsoft PowerApps and Power Automate.</li>
+          <li>Implemented CRUD operations to get, create, and update data through APIs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
     <section id="projects">
-      <h1>/Projects/</h1>
-      <div id="box">
-        <div id="innerContent">
-      <h3>E-Commerce Website   <a  href="https://github.com/apoorvagadkari/E-Commerce_Website" target="_blank" class="fa fa-github">  </a></h3>
-      <p>A full-stack E-Commerce website which helps users to click on an item and it adds to the cart.
-        This also connects to the database(MYSQL)
-      </p>
-      <h6>MySQL,React,Express,Node.js</h6>
-    </div></div>
-    <div id="box1">
-      <div id="innerContent1">
-      <h2>Creating API's <a href="https://github.com/apoorvagadkari/APICreation" target="_blank" class="fa fa-github">  </a></h2>
-      <p>Created the REST-ful API's CRUD operations through Node and Postman</p>
-    
-      <h6>Node.js,Postman</h6>
-    </div></div>
-      <div id="box2">
-        <div id="innerContent2">
-      <h2>Rock-Paper-Scissors Game <a href="https://github.com/apoorvagadkari/https---github.com-apoorvagadkari-RockPaperScissorsGame" target="_blank" class="fa fa-github" >  </a></h2>
-      <p>Based on the user's selection and computer generated random function, this game enables
-        to play the game of Rock Paper Scissors.
-      </p>
-      <h6>HTML,CSS,JavaScript</h6>
-    </div></div></section>
-    <section id="socialMedia">
-    <div class="social">
-    <h1>/Social Media/</h1>
-    <div class="social1">
-    <p>Want to connect?</p>
-    <div class="social2">
-    <h5><a href="https://www.linkedin.com/in/apoorvagadkari/" target="_blank" class="fa fa-linkedin" > LinkedIn</a></h5>
-    <h5><a href="https://github.com/apoorvagadkari" target="_blank" class="fa fa-github"> Github</a></h5>
-  
-    <h5><a href="https://www.instagram.com/apoorvagadkari8/?igshid=MmIzYWVlNDQ5Yg%3D%3D" target="_blank" class="fa fa-instagram"> Instagram</a></h5>
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="divider"></div>
+      <div class="projects-grid">
 
-    <h5 ><a href="mailto:gadkariapurv@gmail.com" target="_blank">Email me here!</a> </h5>
-  </div>
-</div>
-</div></section>
-    <h6 class="name">Built and designed by Apoorva Gadkari</h6>
-    <h6 class="rights">All right reserved &copy;</h6>
-  
-    </body>
-</div>
-  </html>
+        <div class="project-card">
+          <div class="project-icon">🛒</div>
+          <div class="project-name">E-Commerce Website</div>
+          <p class="project-desc">Full-stack shopping site where users can browse items, add to cart, and persist data in MySQL.</p>
+          <div class="project-tags">
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">Express</span>
+            <span class="project-tag">Node.js</span>
+          </div>
+          <a class="project-link" href="https://github.com/apoorvagadkari/E-Commerce_Website" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">⚙️</div>
+          <div class="project-name">REST API Creation</div>
+          <p class="project-desc">Built and tested a full suite of RESTful CRUD endpoints using Node.js and validated via Postman.</p>
+          <div class="project-tags">
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">Postman</span>
+          </div>
+          <a class="project-link" href="https://github.com/apoorvagadkari/APICreation" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">✂️</div>
+          <div class="project-name">Rock Paper Scissors</div>
+          <p class="project-desc">Browser-based game pitting a player against the computer using randomised logic and live score tracking.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+          <a class="project-link" href="https://github.com/apoorvagadkari/https---github.com-apoorvagadkari-RockPaperScissorsGame" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section id="connect">
+      <p class="section-label">Get in touch</p>
+      <h2 class="section-title">Let's connect</h2>
+      <div class="divider"></div>
+      <div class="social-grid">
+        <a class="social-card" href="https://www.linkedin.com/in/apoorvagadkari/" target="_blank" rel="noopener">
+          <span class="social-icon">💼</span> LinkedIn
+        </a>
+        <a class="social-card" href="https://github.com/apoorvagadkari" target="_blank" rel="noopener">
+          <span class="social-icon">🐙</span> GitHub
+        </a>
+        <a class="social-card" href="https://www.instagram.com/apoorvagadkari8/" target="_blank" rel="noopener">
+          <span class="social-icon">📸</span> Instagram
+        </a>
+        <a class="social-card" href="mailto:gadkariapurv@gmail.com">
+          <span class="social-icon">✉️</span> Email
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Built and designed by Apoorva Gadkari &nbsp;·&nbsp; All rights reserved ©
+  </footer>
+
+</body>
+</html>
